@@ -1,0 +1,36 @@
+{% extends 'doctor/doctor_home.html' %}
+{% block body %}
+
+<section class="content">
+    <div class="widget3">
+        <table class="example">
+          <thead>
+              <tr>
+                  <th>Patient ID</th>
+                  <th>Patient Name</th>
+                  <th>Symptoms</th>
+                  <th>Tests</th>
+                  <th>Advice</th>
+                  <th>Medicine</th>
+                  <th>Date</th>
+                  <!-- Add more column headers as needed -->
+              </tr>
+          </thead>
+          <tbody>
+              {% for item in context %}
+              <tr>
+                  <td>{{ item.p_id.id }}</td>
+                  <td>{{ item.p_id.name }}</td>
+                  <td>{{ item.symptoms }}</td>
+                  <td>{{ item.tests }}</td>
+                  <td>{{ item.advice }}</td>
+                  <td>{{ item.medicine }}</td>
+                  <td>{{ item.date }}</td>
+                  <!-- Add more table cells as needed -->
+              </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+    </div>     
+</section>
+{% endblock %}

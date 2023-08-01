@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>Medical Prescription</title>
+    <style>
+        /* CSS styles for prescription layout */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2cm;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 1cm;
+        }
+
+        .patient-info {
+            margin-bottom: 1cm;
+        }
+
+        .prescription-details {
+            margin-bottom: 1cm;
+        }
+
+        .doctor-info {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Medical Prescription</h1>
+    </div>
+
+    <div class="patient-info">
+        <h3>Patient Information</h3>
+        <p><strong>Name:</strong> {{ patient.name }}</p>
+        <p><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</p>
+        <p><strong>Address:</strong> {{ patient.address }}</p>
+        <!-- Add more patient details here as needed -->
+    </div>
+
+    <div class="prescription-details">
+        <h3>Prescription Details</h3>
+        <!-- Add prescription details dynamically using Django template loops -->
+        <ul>
+            {% for medication in medications %}
+                <li>{{ medication.name }} - {{ medication.dosage }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="doctor-info">
+        <h3>Doctor Information</h3>
+    {% for item in doc %}
+        <p><strong>Name:</strong> {{item.dname }}</p>
+        <p><strong>Specialization:</strong> {{ item.department }}</p>
+        <p><strong>Contact:</strong> {{ item.contact }}</p>
+        {% endfor %}
+        <!-- Add more doctor details here as needed -->
+    </div>
+</body>
+</html>

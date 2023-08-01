@@ -1,0 +1,140 @@
+{% extends 'admin_temp/pages/examples/adminindex.html' %}
+{% block body %}
+<section class="content">
+    <div class="widget3">
+      <!-- /.card-header -->
+      <div class="card-body">
+        {% for message in messages %}
+        <p class="alert alert-warning text-center">{{message}}</p>
+        {% endfor %}
+        <form role="form" class="form1" method="post" action="{% url 'add_item'  %}">
+          {% csrf_token %}
+         
+        <table class="table table-bordered">
+          <tbody>
+            <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                   <label>Department</label> 
+                   <select name="department" id="departmentSelect"> <!-- Make sure the name attribute is set -->
+                    <option selected disabled>--Department--</option>
+                    {% for opt in doc %}
+                      <option>{{ opt.department }}</option>
+                    {% endfor %}
+                  </select>
+                   <!-- <input type="text" class="form-control" name="department" > -->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                   <label>Doctor</label> 
+                   <select name="doctor" id="doctorSelect"> <!-- Make sure the name attribute is set -->
+                    <option selected disabled>--Doctor--</option>
+                    {% for opt in doc %}
+                      <option>{{ opt.dname }}</option>
+                    {% endfor %}
+                  </select>
+                   <!-- <input type="text" class="form-control" name="Doctor" > -->
+                  </div>
+                </div>
+              </div>
+         <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Name</label> 
+               <input type="text" class="form-control" name="name" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Place</label>
+               <input type="text" class="form-control" name="place" > 
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Age</label> 
+               <input type="text" class="form-control" name="age" > 
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Height</label> 
+               <input type="text" class="form-control" name="height" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Weight</label>
+               <input type="text" class="form-control" name="weight" >
+              </div>
+            </div>
+          </div>
+          
+            &nbsp;
+          
+              <input class="btn btn-success" type="submit" name="submit" value="Update">
+            
+          
+        </tbody>
+        </table>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script>
+    // Get the department select element
+    const departmentSelect = document.getElementById('departmentSelect');
+    // Get the doctor select element
+    const doctorSelect = document.getElementById('doctorSelect');
+    
+    // Create an object to map department options to doctor options
+    const departmentDoctorMap = {
+      {% for opt in doc %}
+        '{{ opt.department }}': ['{{ opt.dname }}'],
+      {% endfor %}
+    };
+    
+    // Function to update doctor options based on the selected department
+    function updateDoctorOptions() {
+      // Clear all doctor options
+      doctorSelect.innerHTML = '<option selected disabled>--Doctor--</option>';
+      
+      // Get the selected department
+      const selectedDepartment = departmentSelect.value;
+      
+      // Get the corresponding doctor options
+      const doctorOptions = departmentDoctorMap[selectedDepartment] || [];
+      
+      // Create and append doctor option elements
+      doctorOptions.forEach((doctor) => {
+        const option = document.createElement('option');
+        option.text = doctor;
+        doctorSelect.appendChild(option);
+      });
+    }
+    
+    // Add event listener to the department select element
+    departmentSelect.addEventListener('change', updateDoctorOptions);
+    
+    // Initial update of doctor options based on the selected department
+    updateDoctorOptions();
+  </script>
+{% endblock %}

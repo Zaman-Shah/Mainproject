@@ -1,0 +1,31 @@
+{% extends 'admin/adminhome.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/admin_edit_appointment_post" enctype="multipart/form-data">
+    <table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td width="101">Name</td>
+      <td width="83"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" class="form-control" value="{{ data['pname'] }}"></td>
+   </tr>
+     <tr>
+      <td>Token Number</td>
+      <td><label for="number"></label>
+      <input type="number" name="number" id="number" class="form-control" value="{{ data['tockenno'] }}"></td>
+    </tr>
+     <tr>
+      <td width="101">Reference ID</td>
+      <td width="83"><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" value="{{ data['rid'] }}"></td>
+    </tr>
+
+
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="submit" id="submit" value="Update" class="btn btn-primary"></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+{% endblock %}

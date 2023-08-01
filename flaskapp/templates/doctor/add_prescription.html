@@ -1,0 +1,40 @@
+{% extends 'doctor/doctorhome.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/dradd_prescriptionpost" enctype="multipart/form-data">
+    <table class="table table-bordered">
+  <tbody>
+{#   <tr>#}
+{#      <th>Reference ID</th>#}
+{#   <th >Name</th>#}
+  <tr>
+      <td width="101">Reference ID</td>
+      <td width="83"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" class="form-control" value="{{ data['rid'] }}"></td>
+    </tr>
+    <tr>
+      <td width="101">Name</td>
+      <td width="83"><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" value="{{ data['name'] }}"></td>
+    </tr>
+
+
+<tr>
+      <td width="101">Disease</td>
+      <td width="83"><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" class="form-control"></td>
+    </tr>
+        <tr>
+      <td width="101">Medicine</td>
+      <td width="83"><label for="textarea"></label>
+      <input type="text" name="textarea" id="textarea" class="form-control"></td>
+    </tr>
+
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="submit" id="submit" value="Save" class="btn btn-primary"></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+{% endblock %}

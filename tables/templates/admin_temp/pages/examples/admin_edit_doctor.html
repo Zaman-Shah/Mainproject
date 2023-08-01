@@ -1,0 +1,138 @@
+{% extends 'admin_temp/pages/examples/adminindex.html' %}
+{% block body %}
+
+<section class="content">
+  <div class="widget3">
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form" class="form1" method="post" action="{% url 'admin_update_doctor' edit.id %}">
+        {% csrf_token %}
+       
+      <table class="table table-bordered">
+        <tbody>
+       <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+             <label>Doctor Name</label> 
+             <input type="text" class="form-control" name="dname" value="{{ edit.dname }}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+             <label>Department</label>
+             <input type="text" class="form-control" name="department" value="{{ edit.department }}"> 
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+             <label>Qualification</label> 
+             <input type="text" class="form-control" name="qualification" value="{{ edit.qualification }}"> 
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+             <label>Experience</label> 
+             <input type="text" class="form-control" name="experience" value="{{ edit.experience }}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+             <label>Email</label>
+             <input type="text" class="form-control" name="email" value="{{ edit.email }}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- text input -->
+            <div class="form-group">
+             <label>Contact</label>
+             <input type="text" class="form-control" name="contact" value="{{ edit.contact }}">
+            </div>
+          </div>
+        </div>
+          &nbsp;
+        
+            <input class="" type="submit" name="submit" value="Update">
+          
+        
+      </tbody>
+      </table>
+      </form>
+    </div>
+  </div>
+</section>
+  
+
+<!-- <section class="content">
+
+    <div class="widget3">
+<form class="form1" name="form1" method="post" action="/admin_edit_patient/{{ item.id }}" >
+      {% csrf_token %}      
+    <table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th width="90">Name</th>
+      <td width="83"><label for="name"></label>
+        <input type="text" name="name"  class="form-control" value="{{ item.name }}">
+      </td>
+
+    <tr>
+      <th>Place</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="place"  class="form-control" value="{{ item.place }}"></td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td><label for="number"></label>
+      <input type="number" name="age"  class="form-control" value="{{ item.age }}"></td>
+    </tr>
+    <!-- <tr>
+      <th>Phone</th>
+      <td><label for="textfield4"></label>
+        <input type="text" name="textfield4" id="textfield4" class="form-control" value="{{ item.name }}">        <label for="number2"></label></td>
+    </tr> -->
+    <!-- <tr>
+      <th>Height</th>
+      <td><label for="number3"></label>
+      <input type="number" name="height"  class="form-control" value="{{ item.height }}"></td>
+    </tr>
+    <tr>
+      <th>Weight</th>
+      <td><label for="number4"></label>
+      <input type="number" name="weight"  class="form-control" value="{{ item.weight }}"></td>
+    </tr> -->
+    <!-- <tr>
+      <th>Token Number</th>
+      <td><label for="number2"></label>
+      <input type="number" name="number2" id="number2" class="form-control" value="{{ item.name }}"></td>
+    </tr>
+     <tr>
+      <th width="90">Reference ID</th>
+      <td width="83"><label for="textfield5"></label>
+      <input type="text" name="textfield5" id="textfield5" class="form-control"></td>
+    </tr> -->
+
+    <!-- <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="submit" id="submit" value="Save" class="btn btn-success"></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</div>
+</section>  -->
+{% endblock %}

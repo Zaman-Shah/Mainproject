@@ -1,0 +1,55 @@
+ {% extends 'admin_temp\pages\examples\adminindex.html' %}
+{% block body %}
+
+<section class="content">
+    <div class="widget3">
+        <table class="example">
+          <thead>
+              <tr>
+                  <th >Patient_id</th>
+                  <th >Department</th>
+                  <th >Doctor</th>
+                  <th >Patient Name</th>
+                  <th >Patient Age</th>
+                  <th >Place</th>
+                  <th >Date</th>
+                  <th >Height</th>
+                  <th >Weight</th>
+                  <th >History</th>
+                  <th >Edit</th>
+                  <th >Del</th>
+                   <!-- Add more column headers as needed  -->
+              </tr>
+          </thead>
+          <tbody>
+              
+              {% for item in data %}
+              <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.department}}</td>
+                  <td>{{ item.doctor }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.age }}</td>
+                  <td>{{ item.place }}</td>
+                  <td>{{ item.booked_date }}</td>
+                  <td>{{ item.height }}</td>
+                  <td>{{ item.weight }}</td>
+                  <td><a href="/admin_view_history" class="btn btn-primary">View</a> </td>
+                  <td><a href="{% url 'edit_item' item.id %}" class="btn btn-primary">Edit</a> </td>
+                  <td><a href="{% url 'delete' item.id %}" class="btn btn-danger">Delete</a> </td>
+                  
+                   <!-- uAdd more table cells as needed  -->
+              </tr>
+             
+              
+              {% endfor %}
+              
+               
+              
+          </tbody>
+        </table>
+    </div>     
+</section>
+{% endblock %} 
+
+

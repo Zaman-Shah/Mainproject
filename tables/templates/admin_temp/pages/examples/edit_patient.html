@@ -1,0 +1,66 @@
+{% extends 'admin_temp/pages/examples/adminindex.html' %}
+{% block body %}
+
+<section class="content">
+  <div class="widget3">
+<form action="{% url 'edit_data' pk=instance.pk %}" method="post" class="form1">
+  {% csrf_token %}
+  <table class="table table-bordered">
+    <tbody>
+   <tr><div class="row">
+    <div class="col-sm-6">
+      <!-- text input -->
+      <div class="form-group">
+        <!-- <th >Patient Name</th> -->
+        <label>Patient Name</label> 
+      {{ form.name }}
+       
+      </div>
+    </div>
+  </div></tr> 
+     <tr><div class="row">
+        <div class="col-sm-6">
+          <!-- text input -->
+          <div class="form-group">
+            
+        <label>Patient Age</label>
+        {{ form.age }}
+          </div>
+        </div>
+      </div></tr> 
+      <tr><div class="row">
+        <div class="col-sm-6">
+          <!-- text input -->
+          <div class="form-group">
+            <label>Place</label>
+            {{ form.place }}
+          </div>
+        </div>
+      </div></tr>
+     <tr><div class="row">
+        <div class="col-sm-6">
+          <!-- text input -->
+          <div class="form-group">
+            <label>Height</label>
+        {{ form.height }}
+          </div>
+        </div>
+      </div></tr> 
+     <tr> <div class="row">
+        <div class="col-sm-6">
+          <!-- text input -->
+          <div class="form-group">
+            <label>Weight</label>
+            {{ form.weight }}
+          </div>
+        </div>
+      </div></tr>
+      &nbsp;&nbsp;&nbsp;
+    <tr> <input type="submit" value="Save" name="submit"></tr>
+    </tbody>
+  </table>
+ 
+</form>
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'admin_temp/pages/examples/adminindex.html' %}
+{% block body %}
+<section class="content">
+    <div class="widget3">
+      <!-- /.card-header -->
+        <div class="card-body">
+        <!-- {% for message in messages %}
+        <p class="alert alert-warning text-center">{{message}}</p>
+        {% endfor %} -->
+        <form role="form" class="form1" method="post" action="{% url 'add_dept'  %}">
+          {% csrf_token %}
+         
+        <table class="table table-bordered">
+          <tbody>
+            <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                   <label>Id</label> 
+                   <input type="text" class="form-control" name="id" >
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                   <label>Name</label> 
+                   <input type="text" class="form-control" name="department" >
+                  </div>
+                </div>
+              </div>
+              <input class="btn btn-success" type="submit" name="submit" value="Update">
+            
+          
+            </tbody>
+            </table>
+            </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

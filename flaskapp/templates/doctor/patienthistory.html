@@ -1,0 +1,33 @@
+{% extends 'doctor/drindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="get">
+    <table class="table table-bordered" width="200" border="1">
+  <tbody>
+
+      <th >Sl.no</th>
+      <th >Name</th>
+     <th >Age</th>
+      <th >Phone</th>
+      <th >Date</th>
+      <th >Disease</th>
+      <th >medicine</th>
+
+ </tr>
+              {% for i in data %}
+
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{ i['pname'] }}</td>
+      <td>{{ i['age'] }}&nbsp;</td>
+      <td>&nbsp;{{ i['phone'] }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['disease'] }}</td>
+      <td>&nbsp;{{ i['medicine'] }}</td>
+
+    </tr>
+        {% endfor %}
+
+  </tbody>
+</table>
+</form>
+{%  endblock  %}

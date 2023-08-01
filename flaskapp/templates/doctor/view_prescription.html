@@ -1,0 +1,38 @@
+{% extends 'doctor/drindex.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post">
+    <table class="table table-bordered" width="200" border="1">
+  <tbody>
+
+      <th >Sl.no</th>
+       <th >Reference ID</th>
+      <th >Name</th>
+      <th >Disease</th>
+      <th> Medicine</th>
+
+
+
+
+ </tr>
+               {% for i in data %}
+
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{ i['rid'] }}</td>
+      <td>{{ i['name'] }}</td>
+        <td>{{ i['disease'] }}</td>
+         <td>{{ i['medicine'] }}</td>
+
+
+
+
+
+    <td><a href="/edit_prescription/{{ i['prescription_id'] }}" class="btn btn-primary">Edit</a> </td>
+
+    </tr>
+        {% endfor %}
+
+  </tbody>
+</table>
+</form>
+{%  endblock  %}

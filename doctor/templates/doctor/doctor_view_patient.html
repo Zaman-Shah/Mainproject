@@ -1,0 +1,47 @@
+ {% extends 'doctor\doctor_home.html' %}
+{% block body %}
+
+<section class="content">
+    <div class="widget3">
+        <table class="example">
+          <thead>
+              <tr>
+                  <th >Patient_id</th>
+                  <th >Department</th>
+                  <th >Doctor</th>
+                  <th >Patient Name</th>
+                  <th >Patient Age</th>
+                  <th >Place</th>
+                  <th >Height</th>
+                  <th >Weight</th>
+                  <th >History</th>
+                  
+                   <!-- Add more column headers as needed  -->
+              </tr>
+          </thead>
+          <tbody>
+              
+              {% for item in data %}
+              <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.department}}</td>
+                  <td>{{ item.doctor }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.age }}</td>
+                  <td>{{ item.place }}</td>
+                  <td>{{ item.height }}</td>
+                  <td>{{ item.weight }}</td>
+                  <td><a href="{% url 'doctor_view_history' item.id %}" class="btn btn-primary">View</a> </td>
+                 
+                  
+                   <!-- uAdd more table cells as needed  -->
+              </tr>
+              
+              {% endfor %}
+          </tbody>
+        </table>
+    </div>     
+</section>
+{% endblock %} 
+
+

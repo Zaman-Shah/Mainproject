@@ -1,0 +1,46 @@
+{% extends 'doctor/doctor_home.html' %}
+{% block body %}
+<section class="content">
+    <div class="widget3">
+        <table class="appointment">
+          <thead>
+              <tr>
+                  <th >Patient_id</th>
+                  <th >Patient Name</th>
+                  <th >Patient Age</th>
+                  <th >Place</th>
+                  <th >Date</th>
+                  <th >height</th>
+                  
+                  <th >Weight</th>
+                  <th >History</th>
+                  <th >Prescription</th>
+                  
+                  
+                  <!-- Add more column headers as needed -->
+              </tr>
+          </thead>
+          <tbody>
+              
+              {% for item in patients %}
+              <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.age }}</td>
+                  <td>{{ item.place }}</td>
+                  <td>{{ item.booked_date }}</td>
+                  <td>{{ item.height }}</td>
+                  <td>{{ item.weight }}</td>
+                  <td><a href="{% url 'doctor_view_history' item.id %}" class="btn btn-primary">View</a> </td>
+                  <td><a href="{% url 'doctor_add_prescription' item.id %}" class="btn btn-primary">Open</a> </td>
+                  <td><a href="{% url 'prescription' item.id %}" class="btn btn-primary">Open</a> </td>
+         
+              </tr>
+              
+              {% endfor %}
+          </tbody>
+        </table>
+    </div>     
+</section>
+
+{% endblock %}

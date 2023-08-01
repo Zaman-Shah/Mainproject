@@ -1,0 +1,18 @@
+{% extends 'admin/adminhome.html' %}
+{% block body %}
+<form id="form1" name="form1"  method="post" action="admin_add_referid_post" enctype="multipart/form-data">
+    <table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td width="101">Reference id</td>
+      <td width="83"><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" class="form-control"></td>
+    </tr>
+         <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="submit" id="submit" value="Save" class="btn btn-primary"></td>
+    </tr>
+  </tbody>
+</table>
+</form>
+{% endblock %}

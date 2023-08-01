@@ -1,0 +1,81 @@
+{% extends 'doctor/doctor_home.html' %}
+{% block body %}
+<section class="content">
+    <div class="widget3">
+      <!-- /.card-header -->
+      <div class="card-body">
+        <!-- {% for message in messages %}
+        <p class="alert alert-warning text-center">{{message}}</p>
+        {% endfor %} -->
+           <form role="form" class="form1" method="post" action="{% url 'doctor_add_prescription' new.id|default:'' %}">
+
+          {% csrf_token %}
+         
+        <table class="table table-bordered">
+          <tbody>
+              
+         <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Symptoms</label> <br>
+               <textarea type="text" class="form-control" name="symp" ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Tests</label>
+               <textarea type="text" class="form-control" name="tests" ></textarea> 
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Advice</label> 
+               <textarea type="text" class="form-control" name="advice" ></textarea> 
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- text input -->
+              <div class="form-group">
+               <label>Medicine</label> 
+               <textarea type="text" class="form-control" name="medicine" ></textarea>
+               <select class="sc" >
+                <option value="1+1+1" selected>1+1+1</option>
+                <option value="1+0+1">1+0+1</option>
+                <option value="0+1+1">1+1+1</option>
+                <option value="1+0+0">1+1+1</option>
+                <option value="0+0+1">1+1+1</option>
+                <option value="1+1+1+1">1+1+1+1</option>
+              </select>
+              
+              <select class="meal" >
+                        <option value="1" selected>After Meal</option>
+                        <option value="2">Before Meal</option>
+                        <option value="3">Take any time</option>
+                    </select>
+              </div>
+            </div>
+          </div>
+          
+          
+            &nbsp;
+          
+              <input class="btn btn-success" type="submit" name="submit" value="SAVE">
+            
+          
+        </tbody>
+        </table>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+{% endblock %}

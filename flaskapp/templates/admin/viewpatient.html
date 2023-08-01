@@ -1,0 +1,47 @@
+{% extends 'admin/adminhome.html' %}
+{% block body %}
+<form id="form1" name="form1" method="get">
+    <table class="table table-bordered" width="200" border="1">
+    <input type="hidden" value=pid" name="aid">
+  <tbody>
+
+      <th >Sl.no</th>
+      <th >Name</th>
+      <th >Age</th>
+     <th >Place</th>
+      <th >Height</th>
+      <th >Weight</th>
+      <th >Date</th>
+      <th > Time </th>
+      <th >Phone</th>
+      <th >Reference ID</th>
+      <th ></th>
+
+
+
+ </tr>
+              {% for i in data %}
+
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{ i['pname'] }}</td>
+      <td>{{ i['age'] }}</td>
+      <td>{{ i['place'] }}</td>
+      <td>{{ i['height'] }}</td>
+      <td>{{ i['weight'] }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>{{ i['time'] }}</td>
+      <td>{{ i['phone'] }}</td>
+        <td>{{ i['rid'] }}</td>
+
+
+{# <td><a href="/admin_add_referid/{{ i['pid'] }}" class="btn btn-primary">REFERENCE ID</a> </td>#}
+    <td><a href="/admin_edit_patient/{{ i['pid'] }}" class="btn btn-primary">Edit</a> </td>
+<td><a href="/admin_delete_patient/{{ i['pid'] }}" class="btn btn-danger">Delete</a> </td>
+    </tr>
+              {% endfor %}
+
+  </tbody>
+</table>
+</form>
+{%  endblock  %}

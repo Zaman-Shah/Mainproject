@@ -1,0 +1,39 @@
+{% extends 'admin_temp\pages\examples\adminindex.html' %}
+{% block body %}
+
+<section class="content">
+    <div class="widget3">
+        <table class="example">
+          <thead>
+              <tr>
+                  <!-- <th >Patient_id</th> -->
+                  <th >Doctor</th>
+                  <th >Patient Name</th>
+                  <th >Symptoms</th>
+                  <th >Medicine</th>
+                  <th >Date</th>
+                  <th ></th>
+                  <th ></th>
+                  <!-- Add more column headers as needed -->
+              </tr>
+          </thead>
+          <tbody>
+              
+              {% for item in data %}
+              <tr>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.doctor }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.age }}</td>
+                  <td>{{ item.place }}</td>
+                  
+                  
+                  <!-- Add more table cells as needed -->
+              </tr>
+              
+              {% endfor %}
+          </tbody>
+        </table>
+    </div>     
+</section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'admin_temp\pages\examples\adminindex.html' %}
+{% block body %}
+
+<section class="content">
+    <div class="widget3">
+        <table class="example">
+          <thead>
+              <tr>
+                  <th >Doctor_id</th>
+                  <th >Doctor_Name</th>
+                  <th >Department</th>
+                  <th >Qualification</th>
+                  <th >Experience</th>
+                  <th >Email</th>
+                  <th >Contact</th>
+                  <th >Edit</th>
+                  <th >Delete</th>
+                  <!-- Add more column headers as needed -->
+              </tr>
+          </thead>
+          <tbody>
+              
+              {% for item in doc %}
+              <tr>
+                  <td>{{ item.id }}</td>
+                  <td>Dr.{{ item.dname}}</td>
+                  <td>{{ item.department }}</td>
+                  <td>{{ item.qualification }}</td>
+                  <td>{{ item.experience }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.contact }} </td>
+                  <td><a href="{% url 'edit_doctor_item' item.id %}" class="btn btn-primary">Edit</a> </td>
+                  <td><a href="{% url 'delete' item.id %}" class="btn btn-danger">Delete</a> </td>
+                  <td><a href="{% url 'view_schedule' item.id %}" class="btn btn-primary">schedule</a> </td>
+                  <!-- Add more table cells as needed -->
+              </tr>
+              
+              {% endfor %}
+            
+          </tbody>
+        </table>
+    </div>     
+</section>
+{% endblock %}
